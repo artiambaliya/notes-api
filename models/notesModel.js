@@ -2,12 +2,16 @@ const mongoose = require("mongoose");
 
 const noteSchema = new mongoose.Schema({
     heading : {
-        typeof : String,
+        type : String,
         required : true,
     },
     summary : {
-        typeof : String,
-        require : true,
+        type : String,
+        required : true,
+    },
+    isDeleted : {
+        type : Boolean,
+        default : false,
     }
 },
 
