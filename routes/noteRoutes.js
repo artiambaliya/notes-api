@@ -1,5 +1,5 @@
 const express = require("express");
-const route = express.Router();
+const router = express.Router();
 const {
     getNotes,
     createNote,
@@ -11,15 +11,15 @@ const {
 } = require("../controller/noteController");
 
 
-route.get("/", getNotes);
+router.get("/", getNotes);
 
-route.post("/", createNote)
+router.post("/", createNote)
 
-route.get("/:id", getNotesById)
+router.get("/:id", getNotesById)
 
-route.patch("/:id", updateNote)
+router.patch("/:id", updateNote)
 
-route.delete("/:id", deleteNote)
+router.delete("/:id", deleteNote)
 
 
-module.exports = route;
+module.exports = router;

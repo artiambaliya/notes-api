@@ -17,7 +17,7 @@ const createNote = async (req, res, next) => {
 
     const { heading, summary } = req.body;
 
-    if (!heading || !summary) {
+    if (!heading && !summary) {
         const error = new Error("heading and summary are required");
         error.status = 400;
         return next(error);
@@ -38,14 +38,21 @@ const createNote = async (req, res, next) => {
 
 const getNotesById = async (req, res, next) => {
 
+    if(!mongoose.Types.ObjectId.isValid(req.params.id)){
+        const error = new Error("invalid id");
+        error.status = 400;
+        return next(error)
+    }
+
     try {
         const getId = await NoteAPI.findOne({
-            _id: req.params.id
+            _id: req.params.id,
+            isDeleted: false
         });
 
         if (!getId) {
-            const error = new Error("bad requrest");
-            error.status = 400;
+            const error = new Error("bad request");
+            error.status = 404;
             return next(error);
         }
 
@@ -60,10 +67,10 @@ const updateNote = async (req, res, next) => {
 
     const { heading, summary } = req.body;
 
-    if (!heading || !summary) {
+    if (!heading && !summary) {
         const error = new Error("bad request");
         error.status = 400;
-        return nexr(error);
+        return next(error);
     }
 
     try {
@@ -72,6 +79,12 @@ const updateNote = async (req, res, next) => {
             { $set: { heading, summary } },
             { new: true }
         )
+
+        if (!update) {
+            const error = new Error("note not founded");
+            error.status = 404;
+            return next(error);
+        }
 
         return res.status(200).json(update);
     } catch (err) {
@@ -83,10 +96,21 @@ const updateNote = async (req, res, next) => {
 
 const deleteNote = async (req, res, next) => {
 
-    try{
-        const deleteNote = await NoteAPI.findByIdAndDelete(req.params.id)
-        return res.status(201).json(deleteNote);
-    }catch(err){
+    try {
+        const removeNote = await NoteAPI.findByIdAndUpdate(req.params.id,
+            { isDeleted: true },
+            { new: true }
+        );
+
+
+        if(!removeNote){
+            const error = new Error("note not founded");
+            error.status = 404;
+            return next(error);
+        }
+
+        return res.status(200).json(removeNote);
+    } catch (err) {
         next(err);
     }
 

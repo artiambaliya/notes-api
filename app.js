@@ -1,6 +1,6 @@
 const express = require("express");
 const notesRoutes = require("./routes/noteRoutes");
-const errorHandling = require("./middlerware/errorHandling");
+const errorHandling = require("./middlerwares/errorHandling");
 
 
 const app = express();
