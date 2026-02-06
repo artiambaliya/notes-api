@@ -5,7 +5,8 @@ const {
     createNote,
     getNotesById,
     updateNote,
-    
+    deleteNote
+
 
 } = require("../controller/noteController");
 
@@ -17,6 +18,8 @@ route.post("/", createNote)
 route.get("/:id", getNotesById)
 
 route.patch("/:id", updateNote)
+
+route.delete("/:id", deleteNote)
 
 
 module.exports = route;

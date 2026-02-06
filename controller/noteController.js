@@ -81,12 +81,24 @@ const updateNote = async (req, res, next) => {
 }
 
 
+const deleteNote = async (req, res, next) => {
+
+    try{
+        const deleteNote = await NoteAPI.findByIdAndDelete(req.params.id)
+        return res.status(201).json(deleteNote);
+    }catch(err){
+        next(err);
+    }
+
+}
+
 
 module.exports = {
     getNotes,
     createNote,
     getNotesById,
     updateNote,
+    deleteNote
 
 
 }
