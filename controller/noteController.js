@@ -38,12 +38,6 @@ const createNote = async (req, res, next) => {
 
 const getNotesById = async (req, res, next) => {
 
-    if(!mongoose.Types.ObjectId.isValid(req.params.id)){
-        const error = new Error("invalid id");
-        error.status = 400;
-        return next(error)
-    }
-
     try {
         const getId = await NoteAPI.findOne({
             _id: req.params.id,
@@ -51,8 +45,8 @@ const getNotesById = async (req, res, next) => {
         });
 
         if (!getId) {
-            const error = new Error("bad request");
-            error.status = 404;
+            const error = new Error("try again");
+            error.status = 400;
             return next(error);
         }
 

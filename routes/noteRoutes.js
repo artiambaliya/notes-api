@@ -1,5 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const validateId = require("../middlerwares/validateId");
+
 const {
     getNotes,
     createNote,
@@ -11,15 +13,15 @@ const {
 } = require("../controller/noteController");
 
 
-router.get("/", getNotes);
+router.get("/",validateId, getNotes);
 
-router.post("/", createNote)
+router.post("/",validateId, createNote)
 
-router.get("/:id", getNotesById)
+router.get("/:id",validateId, getNotesById)
 
-router.patch("/:id", updateNote)
+router.patch("/:id",validateId, updateNote)
 
-router.delete("/:id", deleteNote)
+router.delete("/:id",validateId, deleteNote)
 
 
 module.exports = router;
