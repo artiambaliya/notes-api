@@ -9,13 +9,12 @@ const {
     updateNote,
     deleteNote
 
-
 } = require("../controller/noteController");
 
 
-router.get("/",validateId, getNotes);
+router.get("/", getNotes);
 
-router.post("/",validateId, createNote)
+router.post("/", createNote)
 
 router.get("/:id",validateId, getNotesById)
 

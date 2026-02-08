@@ -8,8 +8,6 @@ const connectMongo = async () => {
     } catch (err) {
         console.error("connection is failed!");
         process.exit(1)
-
-
     }
 }
 
