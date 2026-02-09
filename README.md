@@ -54,8 +54,6 @@ server runs on :  http://localhost:8001
 
 ## 📌 API Endpoints
 
-## 📌 API Endpoints
-
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | GET    | /api/notes       | Get all notes |
