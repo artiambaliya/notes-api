@@ -39,7 +39,7 @@ server.js
 ## Installation
 
 git clone <your-repo-link>
-cd project-name
+cd notes-api
 npm install
 
 
@@ -57,5 +57,4 @@ POST / api/notes    -> Create Note
 GET / api/notes/:id    -> Get Note by ID
 PATCH / api/notes/:id    -> Update Note
 DELETE / api/notes/:id    -> Delete Note (Soft Delete)
-
 
