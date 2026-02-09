@@ -46,17 +46,18 @@ npm install
 
 ## Run project
 
+```bash
 npm start
-
 server runs on :  https://localhost:8001
+```
 
 
 ## 📌 API Endpoints
 
-`GET / api/notes    -> Get All Notes`
-`POST / api/notes    -> Create Note`
-`GET / api/notes/:id    -> Get Note by ID`
-`PATCH / api/notes/:id    -> Update Note`
-`DELETE / api/notes/:id    -> Delete Note (Soft Delete)`
+`|GET |/ api/notes    |-> Get All Notes|`
+`|POST |/ api/notes    |-> Create Note|`
+`|GET |/ api/notes/:id  |  -> Get Note by ID|`
+`|PATCH| / api/notes/:id |  -> Update Note|`
+`|DELETE| / api/notes/:id|    -> Delete Note (Soft Delete)|`
 
 
