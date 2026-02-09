@@ -27,18 +27,17 @@ This project demonstartes REST API structure, async error handling, and soft del
 
 ## Project structure
 
-
 project/
 │
-├── controllers/  
-├── models/       
-├── routes/         
-├── middleware/   
-├── utils/        
+
+├── controllers/
+├── models/
+├── routes/
+├── middleware/
+├── utils/
 ├── app.js
+
 └── server.js
-
-
 
 
 ## ⚙️ Installation
