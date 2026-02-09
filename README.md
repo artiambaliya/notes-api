@@ -38,10 +38,11 @@ server.js
 
 ## Installation
 
+```bash
 git clone <your-repo-link>
 cd project-name
 npm install
-
+```
 
 ## Run project
 
