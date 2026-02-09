@@ -1,4 +1,4 @@
-# Note API 
+# 🚀 Note API 
 
 A backend Notes API built using **Node.js**, Express, MongoDB.
 
@@ -27,34 +27,42 @@ This project demonstartes REST API structure, async error handling, and soft del
 
 ## Project structure
 
-controller/
-models/
-routes/
-utils/
-middleware/
-app.js
-server.js
+
+project/
+│
+├── controllers/
+├── models/
+├── routes/
+├── middleware/
+├── utils/
+├── app.js
+└── server.js
 
 
-## Installation
 
+## ⚙️ Installation
+
+```bash
 git clone <your-repo-link>
 cd notes-api
 npm install
-
+```
 
 ## Run project
 
+```bash
 npm start
+server runs on :  http://localhost:8001
+```
 
-server runs on :  https://localhost:8001
+
+## 📌 API Endpoints
 
 
-## Endpoints
-
-GET / api/notes    -> Get All Notes
-POST / api/notes    -> Create Note
-GET / api/notes/:id    -> Get Note by ID
-PATCH / api/notes/:id    -> Update Note
-DELETE / api/notes/:id    -> Delete Note (Soft Delete)
-
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET    | /api/notes       | Get all notes |
+| POST   | /api/notes       | Create note |
+| GET    | /api/notes/:id   | Get note by ID |
+| PATCH  | /api/notes/:id   | Update note |
+| DELETE | /api/notes/:id   | Soft delete note |
