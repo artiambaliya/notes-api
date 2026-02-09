@@ -29,11 +29,11 @@ This project demonstartes REST API structure, async error handling, and soft del
 
 project/
 │
-├── controllers/  -> business logic
-├── models/       -> mongoose schema
-├── routes/       -> API schemas  
-├── middleware/   -> error handling & validationId
-├── utils/        -> async handler 
+├── controllers/  
+├── models/       
+├── routes/         
+├── middleware/   
+├── utils/        
 ├── app.js
 └── server.js
 
