@@ -29,14 +29,12 @@ This project demonstartes REST API structure, async error handling, and soft del
 
 project/
 │
-
 ├── controllers/
 ├── models/
 ├── routes/
 ├── middleware/
 ├── utils/
 ├── app.js
-
 └── server.js
 
 
