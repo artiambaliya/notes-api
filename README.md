@@ -40,7 +40,7 @@ server.js
 
 ```bash
 git clone <your-repo-link>
-cd project-name
+cd notes-api
 npm install
 ```
 
@@ -48,16 +48,19 @@ npm install
 
 ```bash
 npm start
-server runs on :  https://localhost:8001
+server runs on :  http://localhost:8001
 ```
 
 
 ## 📌 API Endpoints
 
-`|GET |/ api/notes    |-> Get All Notes|`
-`|POST |/ api/notes    |-> Create Note|`
-`|GET |/ api/notes/:id  |  -> Get Note by ID|`
-`|PATCH| / api/notes/:id |  -> Update Note|`
-`|DELETE| / api/notes/:id|    -> Delete Note (Soft Delete)|`
+## 📌 API Endpoints
 
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET    | /api/notes       | Get all notes |
+| POST   | /api/notes       | Create note |
+| GET    | /api/notes/:id   | Get note by ID |
+| PATCH  | /api/notes/:id   | Update note |
+| DELETE | /api/notes/:id   | Soft delete note |
 
