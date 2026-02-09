@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const validateId = require("../middlerwares/validateId");
-const asyncHandler = require("../utils/asyncHandler")
 
 const {
     getNotes,

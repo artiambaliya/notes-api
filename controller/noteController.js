@@ -15,7 +15,7 @@ const createNote = asyncHandler(async (req, res) => {
 
     const { heading, summary } = req.body;
 
-    if (!heading && !summary) {
+    if (!heading || !summary) {
         const error = new Error("heading and summary are required");
         error.status = 400;
         throw error
@@ -38,7 +38,7 @@ const getNotesById = asyncHandler(async (req, res) => {
     });
 
     if (!getId) {
-        const error = new Error("try again");
+        const error = new Error("Note not found");
         error.status = 404;
         throw error
     }
@@ -51,7 +51,7 @@ const updateNote = asyncHandler(async (req, res) => {
 
     const { heading, summary } = req.body;
 
-    if (!heading && !summary) {
+    if (!heading || !summary) {
         const error = new Error("bad request");
         error.status = 400;
         throw error
@@ -63,7 +63,7 @@ const updateNote = asyncHandler(async (req, res) => {
     )
 
     if (!update) {
-        const error = new Error("note not founded");
+        const error = new Error("note not found");
         error.status = 404;
         throw error
     }
