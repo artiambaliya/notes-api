@@ -1,6 +1,6 @@
 const User = require("../models/userModel");
 
-const registerUser = async(req, res, next) => {
+const registerUser = async (req, res, next) => {
 
     try{
         const { name, email, password } = req.body
@@ -11,9 +11,9 @@ const registerUser = async(req, res, next) => {
             throw error;
         }
 
-        const existinUser = await User.findOne({ email })
+        const existingUser = await User.findOne({ email })
 
-        if(!existinUser){
+        if(existingUser){
             const error = new Error("User alreay exists");
             error.status = 400;
             throw error;
@@ -30,7 +30,7 @@ const registerUser = async(req, res, next) => {
             name : user.name,
             email : user.email,
         });
-        
+
     }catch(err){
         next(err);
     }
