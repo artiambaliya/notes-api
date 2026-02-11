@@ -19,10 +19,12 @@ const registerUser = async (req, res, next) => {
             throw error;
         }
 
+        //hash password 
+
         const user = await User.create({
             name, 
             email,
-            password,
+            password, 
         });
 
         return res.status(201).json({
