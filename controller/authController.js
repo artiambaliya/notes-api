@@ -88,10 +88,7 @@ const loginUser =  async(req, res, next) => {
         token
     });
 
-
-
 }
-
 
 
 module.exports = {

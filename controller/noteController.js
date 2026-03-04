@@ -4,7 +4,7 @@ const asyncHandler = require("../utils/asyncHandler");
 
 
 const getNotes = asyncHandler(async (req, res) => {
-
+    
     const notes = await NoteAPI.find({ isDeleted: false })
     return res.status(200).json(notes);
 
