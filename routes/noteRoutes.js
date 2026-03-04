@@ -13,7 +13,7 @@ const {
 } = require("../controller/noteController");
 
 
-router.get("/", getNotes);
+router.get("/", protect, getNotes);
 
 router.post("/", protect, createNote)
 
