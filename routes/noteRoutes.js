@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const validateId = require("../middlerwares/validateId");
+const protect = require("../middlerwares/authMiddleware");
 
 const {
     getNotes,
@@ -14,7 +15,7 @@ const {
 
 router.get("/", getNotes);
 
-router.post("/", createNote)
+router.post("/", protect, createNote)
 
 router.get("/:id",validateId, getNotesById)
 
