@@ -12,7 +12,12 @@ const noteSchema = new mongoose.Schema({
     isDeleted : {
         type : Boolean,
         default : false,
-    }
+    },
+    user : {
+        type : mongoose.Schema.Types.ObjectId,
+        required : true,
+        ref : "user",
+    },
 },
 
 {timestamps : true}
