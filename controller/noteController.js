@@ -24,6 +24,7 @@ const createNote = asyncHandler(async (req, res) => {
     const data = await NoteAPI.create({
         heading,
         summary,
+        user : req.user,
     });
 
     return res.status(201).json(data)
