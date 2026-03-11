@@ -19,9 +19,9 @@ router.post("/", protect, createNote)
 
 router.get("/:id",validateId, getNotesById)
 
-router.patch("/:id",validateId, updateNote)
+router.patch("/:id",protect, validateId, updateNote)
 
-router.delete("/:id",validateId, deleteNote)
+router.delete("/:id",protect, validateId, deleteNote)
 
 
 module.exports = router;

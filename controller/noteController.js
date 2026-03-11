@@ -4,8 +4,8 @@ const asyncHandler = require("../utils/asyncHandler");
 
 
 const getNotes = asyncHandler(async (req, res) => {
-    
-    const notes = await NoteAPI.find({ user : req.user })
+
+    const notes = await NoteAPI.find({ user: req.user })
     return res.status(200).json(notes);
 
 });
@@ -24,7 +24,7 @@ const createNote = asyncHandler(async (req, res) => {
     const data = await NoteAPI.create({
         heading,
         summary,
-        user : req.user,
+        user: req.user,
     });
 
     return res.status(201).json(data)
@@ -58,8 +58,9 @@ const updateNote = asyncHandler(async (req, res) => {
         throw error
     }
 
-    const update = await NoteAPI.findByIdAndUpdate(req.params.id,
-        { $set: { heading, summary } },
+    const update = await NoteAPI.findOneAndUpdate(
+        { _id: req.params.id, user: req.user },
+        { heading, summary },
         { new: true }
     )
 
@@ -69,26 +70,27 @@ const updateNote = asyncHandler(async (req, res) => {
         throw error
     }
 
-    return res.status(200).json(update);
+    return res.status(201).json(update);
 
-})
+});
 
 
 const deleteNote = asyncHandler(async (req, res) => {
 
-    const removeNote = await NoteAPI.findByIdAndUpdate(req.params.id,
-        { isDeleted: true },
-        { new: true }
-    );
+    const result = await NoteAPI.findOne({
+        _id: req.params.id,
+        user: req.user
+    });
 
-
-    if (!removeNote) {
-        const error = new Error("note not founded");
+    if (!result) {
+        const error = new Error("note not found");
         error.status = 404;
         throw error
     }
 
-    return res.status(200).json(removeNote);
+    await result.deleteOne();
+
+    return res.status(201).json(removeNote);
 
 })
 
@@ -99,6 +101,5 @@ module.exports = {
     getNotesById,
     updateNote,
     deleteNote
-
 
 }
