@@ -9,10 +9,6 @@ const noteSchema = new mongoose.Schema({
         type : String,
         required : true,
     },
-    isDeleted : {
-        type : Boolean,
-        default : false,
-    },
     user : {
         type : mongoose.Schema.Types.ObjectId,
         required : true,

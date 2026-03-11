@@ -21,7 +21,7 @@ router.get("/:id",validateId, getNotesById)
 
 router.patch("/:id",protect, validateId, updateNote)
 
-router.delete("/:id",protect, validateId, deleteNote)
+router.delete("/:id", protect, validateId, deleteNote)
 
 
 module.exports = router;

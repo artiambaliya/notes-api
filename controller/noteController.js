@@ -77,20 +77,25 @@ const updateNote = asyncHandler(async (req, res) => {
 
 const deleteNote = asyncHandler(async (req, res) => {
 
-    const result = await NoteAPI.findOne({
-        _id: req.params.id,
-        user: req.user
-    });
 
-    if (!result) {
-        const error = new Error("note not found");
-        error.status = 404;
-        throw error
-    }
+        const result = await NoteAPI.findOne({
+            _id: req.params.id,
+            user: req.user
+        });
 
-    await result.deleteOne();
+        console.log("params id:", req.params.id);
+        console.log("req.user:", req.user);
 
-    return res.status(201).json(removeNote);
+        if (!result) {
+            const error = new Error("note not found");
+            error.status = 404;
+            throw error;
+        }
+
+        await result.deleteOne();
+
+        return res.status(201).json({ mes : "note is deleted"});
+
 
 })
 
