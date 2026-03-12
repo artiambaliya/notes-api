@@ -77,7 +77,7 @@ server runs on :  http://localhost:8001
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| GET    | /api/auth/register     |register user |
+| POST    | /api/auth/register     |register user |
 | POST   | /api/auth/login        |login user  |
 
 
